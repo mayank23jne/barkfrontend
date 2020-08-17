@@ -3,9 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  url:'http://ewayits.com/bark/backend/',
+  store_hash: '8z9hwrmimf',
+  auth_client: 'fvl3kkmnl6vlyl5k8sjgjpd6h6l2w2s',
+  auth_token: '1tdzdz9g6lilvawfxlyynpj9vtmb135',
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

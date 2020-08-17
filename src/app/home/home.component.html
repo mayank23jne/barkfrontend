@@ -58,11 +58,12 @@ Get free quotes within minutes
 			  </h2>
               <div id="search-section">
               	<form id="suggestion_form" name="gs" method="get" action="#">
-                <div class="searchText">
+                <div class="searchText" style="width:80%;">
                   
-                  <input type="text" name="q" class="searchText" placeholder="What Service are you Looking for?" autocomplete="on">
+           <input style="width:50%;" type="text" (ngModel)="model.searchterm" name="Search" (keyup)="search()" class="searchText" placeholder="What Service are you Looking for?" autocomplete="on">
+		     <input style="width:40%;" type="text" name="q2" class="searchText" placeholder="Postcode" autocomplete="on">
                   <ul>
-                    <li><label><span>
+                    <li><label><span> 
 
 Popular: House Cleaning, Web Design, Personal Trainers
 </span></label></li>
@@ -430,7 +431,8 @@ Popular: House Cleaning, Web Design, Personal Trainers
         
         <!-- Modal body -->
         <div class="modal-body">
-      <formio src="https://qvffwzgzipuxobq.form.io/q1"></formio>
+      <formio src="https://qvffwzgzipuxobq.form.io/q1" (render)="onRender($event)" (change)="onChange($event)" (nextPage)="onNext($event)"
+      [options]="formConfig.options" (submit)="onSubmit($event)"></formio>
         </div>
         
         <!-- Modal footer -->
