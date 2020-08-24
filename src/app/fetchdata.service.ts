@@ -89,9 +89,9 @@ export class FetchdataService {
 		return this.http.put(environment.url + 'change_password.php?id=' + id, userdata)
 	}
 
-	addWishList(data: any): Observable<any> {
+	addData(data: any): Observable<any> {
 
-		return this.http.post(environment.url + 'addwishlist.php', data)
+		return this.http.post(environment.url + 'leads/addData', data)
 	}
 
 	getallWishList(id: any): Observable<any> {

@@ -60,9 +60,15 @@ Get free quotes within minutes
               	<form id="suggestion_form" name="gs" method="get" action="#">
                 <div class="searchText" style="width:80%;">
                   
-           <input style="width:50%;" type="text" (ngModel)="model.searchterm" name="Search" (keyup)="search()" class="searchText" placeholder="What Service are you Looking for?" autocomplete="on">
+           <input style="width:50%;" type="text" [(ngModel)]="searchterm" name="Search" (keyup)="search()" class="searchText" placeholder="What Service are you Looking for?" autocomplete="on">
 		     <input style="width:40%;" type="text" name="q2" class="searchText" placeholder="Postcode" autocomplete="on">
-                  <ul>
+<div *ngIf="showss" style="position:absolute;margin-top:50px;">
+	
+	                  <ul style="background-color:white;"> 
+					  <li *ngIf="services!=''" style="padding:10px;"> <p class="item" *ngFor="let service of services; let i=index trackBy: trackByIndex"><a (click)="setval(service.name)">{{ service.name }}</a></p></li>
+					  </ul>
+	</div>
+	  <ul>
                     <li><label><span> 
 
 Popular: House Cleaning, Web Design, Personal Trainers
@@ -431,8 +437,12 @@ Popular: House Cleaning, Web Design, Personal Trainers
         
         <!-- Modal body -->
         <div class="modal-body">
-      <formio src="https://qvffwzgzipuxobq.form.io/q1" (render)="onRender($event)" (change)="onChange($event)" (nextPage)="onNext($event)"
+		
+      <formio *ngIf="formlink" [src]="formlink" (render)="onRender($event)" (change)="onChange($event)" (nextPage)="onNext($event)"
       [options]="formConfig.options" (submit)="onSubmit($event)"></formio>
+      
+	  <h5 *ngIf="!formlink"> Please Select a Service </h5>
+	  
         </div>
         
         <!-- Modal footer -->
