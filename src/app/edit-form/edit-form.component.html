@@ -1,0 +1,43 @@
+<div style="padding:10px;">
+	<div class="contact-form">
+		<form id="contact" action="" method="post">
+			<div class="row">
+				<div class="col-md-4 col-sm-4">
+					
+				</div>
+				<div class="col-md-4 col-sm-4">
+                    <fieldset>
+						<input name="name" type="text" id="name" [(ngModel)]="formName" required="">
+					</fieldset>
+				</div>
+				<div class="col-lg-4">
+                    <fieldset>
+						<button type="submit" id="form-submit" class="main-button" (click)="updateForm()">Update Form</button>&nbsp;
+						<button class="main-button" routerLink="/admin/create">New Form</button>
+					</fieldset>
+				</div>
+			</div>
+		</form>
+	</div>
+	<form-builder [form]='fdata' form-display="wizard" (change)="onChange($event)"></form-builder>
+	
+	
+	<!-- Modal HTML -->
+	<div id="myModal" class="modal fade">
+		<div class="modal-dialog modal-confirm">
+			<div class="modal-content">
+				<div class="modal-header justify-content-center">
+					<div class="icon-box">
+						<i class="fa fa-check"></i>
+					</div>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body text-center">
+					<h4>Great!</h4>	
+					<p>Your Form has been Update successfully.</p>
+					
+				</div>
+			</div>
+		</div>
+	</div>   
+</div>

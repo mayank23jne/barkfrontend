@@ -1,0 +1,179 @@
+  <!-- ***** Preloader Start ***** -->
+
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><h2>Bark</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+        <!--    <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="services.html">Our Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+		</ul>-->
+          </div>
+          <div class="functional-buttons">
+            <ul>
+              <li><a href="#">Log in</a></li>
+              <li><a href="#">Sign Up</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <div style="color:white;" class="header-text ">
+              <h1>
+Find the right customers for your business
+			  </h1>
+			  <h4>Every six seconds a customer searches for a service on Bark</h4>
+              <div id="search-section">
+              	<form id="suggestion_form" name="gs" method="get" action="#">
+                <div class="searchText" style="width:80%;">
+                  
+           <input style="width:100%;" type="text"  name="Search" (keyup)="search($event)" class="searchText" placeholder="What Service do you provide?" autocomplete="on">
+		     
+<div *ngIf="showss" style="position:absolute;margin-top:50px;">
+	
+	                  <ul style="background-color:white;"> 
+					  <li *ngIf="services!=''" style="padding:10px;"> <p class="item" *ngFor="let service of services; let i=index trackBy: trackByIndex"><a (click)="setval(service.name)">{{ service.name }}</a></p></li>
+					  </ul>
+	</div>
+	  <ul>
+                   
+                   
+                  </ul>
+                </div>
+
+                    <input type="button" name="results" class="main-button" value="Get Started" data-toggle="modal" data-target="#myModal">
+                 </form>
+               <div class="advSearch_chkbox">
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Banner Ends Here -->
+
+
+
+    <!-- Footer Starts Here -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="footer-item">
+              <div class="footer-heading">
+                <h2>About Us</h2>
+              </div>
+              <p>Host Cloud is provided by TemplateMo for free of charge. Anyone can download and use this CSS Bootstrap template for commercial purposes.</p>
+            </div>
+          </div>
+          
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="footer-item">
+              <div class="footer-heading">
+                <h2>Hosting Plans</h2>
+              </div>
+              <ul class="footer-list">
+                <li><a href="#">Basic Cloud 5X</a></li>
+                <li><a href="#">Cloud VPS 10X</a></li>
+                <li><a href="#">Advanced Cloud</a></li>
+                <li><a href="#">Custom Designs</a></li>
+                <li><a href="#">Special Solutions</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="footer-item">
+              <div class="footer-heading">
+                <h2>Useful Links</h2>
+              </div>
+              <ul class="footer-list">
+                <li><a href="#">Cloud Hosting Platform</a></li>
+                <li><a href="#">Light Speed Zone</a></li>
+                <li><a href="#">Content Delivery Network</a></li>
+                <li><a href="#">Customer Support</a></li>
+                <li><a href="#">Latest News</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="footer-item">
+              <div class="footer-heading">
+                <h2>More Information</h2>
+              </div>
+              <ul class="footer-list">
+                <li>Phone: <a href="#">010-020-0560</a></li>
+                <li>Email: <a href="#">mail@company.com</a></li>
+                <li>Support: <a href="#">support@company.com</a></li>
+                <li>Website: <a href="#">www.company.com</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="sub-footer">
+              <p>Copyright &copy; 2020 Cloud Hosting Company
+				- Designed by <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+	    <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+		
+      <formio *ngIf="formlink" [src]="formlink" (render)="onRender($event)" (change)="onChange($event)" (nextPage)="onNext($event)"
+      [options]="formConfig.options" (submit)="onSubmit($event)"></formio>
+      
+	  <h5 *ngIf="!formlink"> Please Select a Service </h5>
+	  
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+    </footer>
+    <!-- Footer Ends Here -->

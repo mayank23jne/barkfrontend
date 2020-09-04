@@ -1,0 +1,239 @@
+<app-header></app-header>
+<!-- Page Content -->
+<!-- Heading Starts Here -->
+<div class="page-heading header-text">
+	<div class="container">
+        <div class="row">
+			<div class="col-md-12">
+				<h1>&nbsp;</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Heading Ends Here -->
+
+
+<!-- Contact Us Starts Here -->
+<div class="contact-us">
+	<div class="container">
+        <div class="row leadrow">
+			<div class="col-md-4 leftdata">
+				<div><span>{{totalleads}} leads matching your Lead Preferences</span><hr/></div>
+				
+				
+				<div *ngFor="let lead of leads" class="single-lead">
+					
+					<a (click)="setval(lead.id)">
+						<div>
+							<h4>{{lead.name}}</h4>
+							<h6>Debt Recovery & Collection</h6>
+							<p>{{ans.whoIsSeekingToRecoverTheDebt}} | {{ans.whatIsTheAmountOwed}} | {{ans.howLongHasThisAmountBeenUnpaidFor}} | {{ans.doYouAlreadyHaveACourtJudgementForThisDebt}}</p>
+						</div>
+						<br/>
+						<hr/>
+						
+					</a>
+				</div>
+			</div>
+			<div class="col-md-8 rightdata">
+				<div *ngIf="singlelead" class="right-content">
+					<div class="section-heading">
+						
+						<h2>{{singlelead.name}}</h2>
+						<span>Debt Recovery & Collection</span>
+						<p></p>
+						<h6><i class="fa fa-phone"></i> {{myphone}}</h6>
+						<h6><i class="fa fa-envelope"></i>  {{myemail}}</h6>
+						
+					</div>
+					<button class="btn btn-primary"  data-toggle="modal" data-target="#myModal">Contact {{singlelead.name}}</button>
+					<button class="btn btn-default">Not Interested</button>
+					<div class="project-credits-to-respond pt-2 pt-md-4 align-items-center" style="">
+						<span class="num-credits-resp pl-2 text-grey-400">{{singlelead.lead_cost_credits}} credits</span>
+						<hr/>
+					</div>
+					
+					<h4>Details</h4>
+					
+					<p><b>Who is seeking to recover the debt?</b></p>
+					<p>{{ans.whoIsSeekingToRecoverTheDebt}}</p>
+					
+					<p><b>What is the amount owed?</b></p>
+					<p>{{ans.whatIsTheAmountOwed}}</p>
+					
+					<p><b>How long has this amount been unpaid for?</b></p>
+					<p>{{ans.howLongHasThisAmountBeenUnpaidFor}}</p>
+					
+					<p><b>Do you already have a court judgement for this debt?</b></p>
+					<p>{{ans.doYouAlreadyHaveACourtJudgementForThisDebt}}</p>
+					
+					<p><b>Which of the following does the debt relate to?</b></p>
+					
+					<p *ngIf="ans.loanNotRepaid==true">Loan not repaid</p>
+					<p *ngIf="ans.serviceProductProvidedNotOfAgreedStandard==true">Service/product provided not of agreed standard</p>
+					<p *ngIf="ans.unpaidInvoiceS==true">Unpaid invoice(s)</p>
+					<p *ngIf="ans.unpaidRent==true">Unpaid rent</p>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+		<div class="modal-content">
+            <div class="modal-header flex-column">
+                <h4 class="modal-title w-100" id="sellerRespondUpsell-label">You need <span class="response-modal-current-required">{{singlelead.lead_cost_credits}}</span> credits to contact <span class="response-modal-name">{{singlelead.name}}</span></h4>
+				<p class="text-grey-600 w-100 mt-1 modal-subtitle ">To get some credits, you need to buy a starter pack of <span class="js-n-credits"></span> credits <br class="d-none d-md-inline">(Enough for this lead + roughly another 9 leads)</p>
+				<button aria-label="Close" class="close close-modal-cross" data-dismiss="modal" type="button"></button>
+			</div>
+            <div class="modal-body">
+                <div class="modal-alerts"></div>
+                <div class="js-credits-section-waiting waiting-hidden">
+					<input type="hidden" name="upsell-origin" value="credits-organic">
+					<input type="hidden" id="auto-topup-available">
+					<div class="row">
+						<div class="col-12 mx-auto solid" id="faqs-section">
+							<div id="accordion">
+								<div class="faq-card py-2 mb-1">
+									<div class="faq-card-header px-3 collapsed" id="heading1" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1" data-index="1">
+										<p class="faq-card-header-text mb-0 pr-3 text-xs-14 text-md-sm">
+											What are credits?
+										</p>
+										<span class="chevron">
+											<span class="bark-svg-icon bsi-primary-dark-blue bsi-sm"><!--?xml version="1.0" encoding="UTF-8"?-->
+											</span>
+										</span>
+									</div>
+									<div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordion" style="">
+										<div class="faq-card-body pt-3 pb-2 px-3 text-xs-14 text-md-sm">
+											Credits are Bark’s online currency. If you see a job that you like and you want to get in contact
+											with that customer, then you use credits to purchase their contact details (you will receive their
+											personal phone number and email address). The amount of credits required to contact a customer
+											varies depending on the potential value of the job e.g. you will need less credits to contact a
+											customer looking for a cleaner once a month for a 1 bedroomed flat than a customer looking for a
+											cleaner once a week for a 5 bedroomed house.
+										</div>
+									</div>
+								</div>
+								<div class="faq-card py-2 mb-1">
+									<div class="faq-card-header collapsed px-3" id="heading2" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2" data-index="2">
+										<p class="faq-card-header-text mb-0 pr-3 text-xs-14 text-md-sm">
+											What is the starter pack?
+										</p>
+										<span class="chevron">
+											<span class="bark-svg-icon bsi-primary-dark-blue bsi-sm"><!--?xml version="1.0" encoding="UTF-8"?-->
+											</span>
+										</span>
+									</div>
+									<div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
+										<div class="faq-card-body pt-3 pb-2 px-3 text-xs-14 text-md-sm">
+											The starter pack is the only way to get started and trial Bark properly. It provides enough credits
+											to contact roughly 10 customers and is designed so that you get hired at least once and get a great
+											return on your investment. We’re so confident that you’ll get hired at least once from the starter
+											pack that we offer a full Get Hired Guarantee. We also offer a massive 20% discount off the standard
+											price.
+										</div>
+									</div>
+								</div>
+								<div class="faq-card py-2 mb-1">
+									<div class="faq-card-header collapsed px-3" id="heading3" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3" data-index="3">
+										<p class="faq-card-header-text mb-0 pr-3 text-xs-14 text-md-sm">
+											What is the Get Hired Guarantee?
+										</p>
+										<span class="chevron">
+											<span class="bark-svg-icon bsi-primary-dark-blue bsi-sm"><!--?xml version="1.0" encoding="UTF-8"?-->
+												
+											</span>
+										</span>
+									</div>
+									<div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordion">
+										<div class="faq-card-body pt-3 pb-2 px-3 text-xs-14 text-md-sm">
+											The Get Hired Guarantee is there as we’re so confident that you’ll get hired at least once that if
+											you don’t, we’ll return all of the credits so you can try again.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="starter-pack-container js-starter-pack-container pt-4">
+						<div class="starter-pack-elem px-2 pt-4 pt-md-5 pb-3 border rounded border-grey-100 position-relative">
+							<div class="row no-gutters px-md-3 pt-2 pb-2 pt-md-0 pb-md-0">
+								<div class="col-6 col-md-7">
+									<span class="bark-svg-icon bsi-primary-dark-blue d-inline-block align-middle bsi-sm"><!--?xml version="1.0" encoding="UTF-8"?-->
+									</span><span class="align-middle"> <span class="js-n-credits">50</span> credits</span>
+								</div>
+								<div class="col-6 col-md-5 text-right text-md-left">
+									<span class="bold">
+										<span class="js-currency-symbol">£</span><span class="js-price">48.00</span>
+									ex VAT                    </span>
+									<span class="d-none d-md-inline">/
+										<span class="js-currency-symbol">£</span><span class="js-price-per-credit">0.96</span> per credit
+									</span>
+								</div>
+								<div class="col-6 col-md-7 text-xs-14 pt-2">
+									<span class="d-none d-md-inline">Enough for</span><span class="d-md-none d-inline">For</span> about <span class="js-estimated-responses">10</span> leads
+								</div>
+								<div class="col-6 col-md-5 text-xs-14 pt-2 text-right text-md-left">
+									<span class="strike-through text-grey-400">
+										<span class="js-currency-symbol">£</span><span class="js-price">60.00</span>
+									ex VAT                    </span>
+								</div>
+							</div>
+							
+							
+							<div class="row no-gutters px-md-3">
+								<div class="col-12 col-md-6 text-right pr-md-3">
+									
+									<button class="btn btn-primary btn-block"(click)="showPurchase()" data-dismiss="modal">Buy 50 Credits</button>
+								</div>
+								<div class="col-12 col-md-6 text-right pl-md-6 mt-3 mt-md-0 align-self-center atu-container custom-checkbox text-xs text-center text-md-right">
+									<input type="checkbox" id="autotop-enabler-starter-pack" class="custom-control-input my-auto js-atu-toggle" checked="">
+									<label for="autotop-enabler-starter-pack" class="custom-control-label cursor-pointer">Auto top-up next time</label>
+								</div>
+							</div>
+							
+							<div class="text-center text-grey-400 mt-3 text-sm">
+								You will use <span class="response-modal-current-required">{{singlelead.lead_cost_credits}}</span> of your 50
+								purchased credits to contact <span class="response-modal-name">{{singlelead.name}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+            <div class="modal-footer justify-content-between"></div>
+		</div>
+	</div>
+</div>
+<!-- Contact Us Ends Here -->
+<!-- The Modal -->
+<div class="modal" id="myModalp">
+    <div class="modal-dialog">
+		<div class="modal-content">
+			
+			<!-- Modal Header -->
+			<div class="modal-header">
+				
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			
+			<!-- Modal body -->
+			<div class="modal-body">
+				
+				<formio *ngIf="fdata" [form]="fdata" 
+				[options]="formConfig.options" (submit)="onSubmit($event)"></formio>
+				
+			</div>
+			
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			</div>
+			
+		</div>
+	</div>
+</div>

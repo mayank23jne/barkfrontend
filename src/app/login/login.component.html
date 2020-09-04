@@ -1,7 +1,3 @@
-<!-- ***** Preloader Start ***** -->
-
-<!-- ***** Preloader End ***** -->
-
 <!-- Header -->
 <header class="">
 	<nav class="navbar navbar-expand-lg">
@@ -15,8 +11,8 @@
 			</div>
 			<div class="functional-buttons">
 				<ul>
-					<li style="color:white;">Welcome: {{uname}} </li>
-					<li><a href="" (click)="logout()">Logout</a></li>
+					<li><a routerLink="#">Log in</a></li>
+					<li><a routerLink="/sellers/create" >Join as a Professional</a></li>
 				</ul>
 			</div>
 		</div>
@@ -28,31 +24,11 @@
 <div class="banner">
 	<div class="container">
         <div class="row">
-			<div class="col-md-8 offset-md-2">
-				<div class="header-text caption">
-					<h2>
-						Find the perfect
-						professional for you
-						Get free quotes within minutes
-					</h2>
-					<h4 *ngIf="!leads" style="color:white">
-						No Data Found For Listing....... 
-					</h4> 
-					<h4 *ngIf="leads" style="color:white">
-						Professionals Available for your Lead...
-					</h4>
-					<div>
-						<div *ngFor="let lead of leads" class="mydiv" >
-							<div style="float:left;">
-								<h3>{{lead.name}}</h3>
-								<p>{{lead.company_name}}</p>
-							</div>	
-							<div style="float:right;">
-								<button class="btn btn-primary">View Profile</button>&nbsp;
-								<button class="btn btn-primary"> Contact</button>
-							</div>
-						</div>
-					</div>
+			<div class="col-md-6 offset-md-3">
+				<div style="background-color:white;padding:50px;">
+					
+					<formio  [form]="fdata"
+					[options]="formConfig.options" (submit)="onSubmit($event)"></formio>
 				</div>
 			</div>
 		</div>
